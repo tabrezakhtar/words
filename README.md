@@ -1,4 +1,4 @@
-# Code test for MatchesFashion
+# Code test
 #### Completed by Tabrez Akhtar
 
 To run the app:
