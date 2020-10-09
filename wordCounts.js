@@ -4,7 +4,6 @@ function splitWords(text) {
 }
 
 //This could be done with reduce which is a more functional way of writing code.
-//I find it easier to debug when I write code imperatively.  If this was inside a redux reducer, I would write this in a functional style.
 function countWords(words) {
   let counts = {};
   for (const word of words) {
