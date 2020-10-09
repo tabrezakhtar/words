@@ -31,3 +31,44 @@ describe('splitting text', () => {
     });
   });
 });
+
+describe('special chars', () => {
+  describe('when words containing special chars are passed in', () => {
+    it('should remove them', () => {
+        expect(splitWords('@^;;test**')).toEqual(['test']);
+    });
+  });
+
+  describe('when words containing special chars and apostrophe are passed in', () => {
+    it('should remove special chars but keep apostrophe', () => {
+        expect(splitWords("@^;;don't**")).toEqual(["don't"]);
+    });
+  });
+});
+
+describe('top 3 words', () => {
+
+  describe('when no text passed in', () => {
+    it('should return empty array', () => {
+      expect(top3Words()).toEqual([]);
+    });
+  });
+
+  describe('when a paragraph is passed in', () => {
+    it('should have correct counts', () => {
+      expect(top3Words(txt1)).toEqual([ 'a', 'of', 'on' ]);
+    });
+  });
+  
+  describe('when text with mixed case and special chars passed in', () => {
+    it('should have correct counts', () => {
+      expect(top3Words(txt2)).toEqual([ 'e', 'ddd', 'aa' ]);
+    });
+  });
+
+  describe('when text with apostrophies passed in', () => {
+    it('should have correct counts', () => {
+      expect(top3Words(txt3)).toEqual(["won't", "wont"]);
+    });
+  });
+});

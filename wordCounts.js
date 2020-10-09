@@ -1,18 +1,17 @@
 function splitWords(text) {
-  //the split command isnt efficient for memory usage.  maybe a regex could be a better solution to get the words.
-  return text ? text.toLowerCase().replace(/(\n|\r|[^a-zA-Z0-9'])/g,' ').split(' ') : [];
+  //The split command isnt efficient for memory usage.  maybe a regex could be a better solution to get the words.
+  return text ? text.toLowerCase().replace(/(\n|\r|[^a-zA-Z0-9'])/g,' ').split(' ').filter(item => item) : [];
 }
 
-//this could be done with reduce, but I find it easier to debug when I write code imperatively
+//This could be done with reduce which is a more functional way of writing code.
+//I find it easier to debug when I write code imperatively.  If this was inside a redux reducer, I would write this in a functional style.
 function countWords(words) {
   let counts = {};
   for (const word of words) {
-    if (word.trim()) {
-      if (counts[word]) {
-        counts[word] = counts[word] + 1;
-      } else {
-        counts[word] = 1;
-      }
+    if (counts[word]) {
+      counts[word] = counts[word] + 1;
+    } else {
+      counts[word] = 1;
     }
   }
   
