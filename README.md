@@ -10,7 +10,7 @@ To run the app:
 The output should be:
 
 ```
-checkout> node index   
+> node index   
 [ 'a', 'of', 'on' ]
 [ 'e', 'ddd', 'aa' ]
 [ "won't", 'wont' ]
